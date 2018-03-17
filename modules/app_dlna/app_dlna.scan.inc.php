@@ -36,7 +36,7 @@ if (count($res)) {
 function Scan()
 {
     $upnp = new Upnp();
-    $everything = $upnp->discover();
+    $everything = $upnp->search('upnp:rootdevice');
     $result = [];
     foreach ($everything as $device) {
         if (!array_search_result($result, 'UUID', $device['description']['device']["UDN"])) {
